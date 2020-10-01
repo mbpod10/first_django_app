@@ -42,7 +42,7 @@ conda env remove --name MyDjangoEnv
 django-admin startproject first_project2
 ```
 
-# Creat Project
+# Create Project
 
 ```
 django-admin startproject first_project
@@ -136,4 +136,49 @@ urlpatterns = [
 ]
 
 
+```
+
+## Running Setting
+
+cd into `first_project2/first_project2`
+run `python3 settings.py`
+add below `BASE_DIR = Path(__file__).resolve().parent.parent`
+
+```
+BASE_DIR = Path(__file__).resolve().parent.parent
+print(BASE_DIR)
+#this gets full file path of project
+==
+/Users/brock/Desktop/postGA/projects/python_projects/first_django_app/first_project2
+```
+
+- Create a new folder called `templates` in base of first_project2
+- Go back to `first_project2/first_project2/settings.py` and set a new variable that is the path to templates
+
+```
+BASE_DIR = Path(__file__).resolve().parent.parent
+TEMPLATE_DIR = BASE_DIR / 'templates'
+print(TEMPLATE_DIR)
+==
+/Users/brock/Desktop/postGA/projects/python_projects/first_django_app/first_project2/templates
+```
+
+- Scroll Down to TEMPLATES in `first_project2/first_project2/settings.py` and add the new template variable TEMPLATE_DIR
+
+```
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [TEMPLATE_DIR],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 ```
