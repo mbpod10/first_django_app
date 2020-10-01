@@ -227,7 +227,7 @@ class AccessRecord(models.Model):
 - while in `first_project2` folder command:
   `python3 manage.py migrate`
 - Register Application
-  `python3 manage.py makemigrations first_app` <br  />
+  `python3 manage.py makemigrations first_app` <br  /> <br  />
   RETURN:
 
 ```
@@ -241,7 +241,7 @@ Migrations for 'first_app':
 - Migrate One More Time
   `python3 manag.py migrate`
 
-# Confirmat It Worked With Python Shell
+# Confirm It Worked With Python Shell
 
 `python3 manage.py shell`
 
@@ -301,4 +301,8 @@ Password: training123
 Password (again): training123
 ```
 
-<b>SUPER USER CREATED</b>
+`<b>Superuser created successfully.</b>`
+
+#### Let's See If It Worked
+
+`python3 manage.py runserver`
