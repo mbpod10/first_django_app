@@ -93,7 +93,7 @@ python3 manage.py startapp first_app
 
 scroll down to INSTALLED_APPS and import 'first_app'
 
-```
+```python
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -109,7 +109,7 @@ INSTALLED_APPS = [
 
 in first_app/views.py add ===>
 
-```
+```python
 from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
@@ -122,16 +122,16 @@ def index(request):
 
 ## add this route to first_project2/urls.py
 
-```
+```python
 from django.contrib import admin
 from django.urls import path
 
-............................
+#............................
 from first_app import views
-^^^^^^^^^^^^^^^^^^^^^^^^^
+#^^^^^^^^^^^^^^^^^^^^^^^^^
 
 urlpatterns = [
->>> path('', views.index, name='index'), <<<<
+    path('', views.index, name='index'),
     path('admin/', admin.site.urls),
 ]
 
@@ -165,7 +165,7 @@ print(TEMPLATE_DIR)
 
 - Scroll Down to TEMPLATES in `first_project2/first_project2/settings.py` and add the new template variable TEMPLATE_DIR
 
-```
+```python
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -189,7 +189,7 @@ cd into `first_app/models.py`
 
 create models:
 
-```
+```python
 from django.db import models
 
 # Create your models here.
