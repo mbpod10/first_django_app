@@ -311,3 +311,64 @@ Password (again): training123
 - Enter Username and password
 
   ![Superuser Login](https://i.imgur.com/75qenrj.png "Successful Superuser Login")
+
+<br  />
+<b>SUCCESS!</b>
+
+### Faker Populate Database
+
+- Install Faker in virtual environment `MyDjangoEnv` <br  />
+  `pip3 install faker`
+- Create a seed data file at the top level of the project called `populate_first_app.py`
+
+```python
+import os
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'first_project2.settings') 
+import django 
+django.setup()
+#Fake Pop Script
+
+import random
+from first_app.models import AccessRecord, Webpage, Topic
+from faker import Faker
+
+
+
+fakegen = Faker()
+topics = ['Search', 'Social', 'Marketplace', 'News', 'Games']
+
+
+def add_topic():
+    t = Topic.objects.get_or_create(top_name=random.choice(topics))[0]
+    t.save()
+    return t
+
+
+def populate(N=5):
+    for entry in range(N):
+
+        # get topic for entry
+        top = add_topic()
+
+        # Create fake data
+        fake_url = fakegen.url()
+        fake_date = fakegen.date()
+        fake_name = fakegen.company()
+
+        # Creaet new webpage
+        webpg = Webpage.objects.get_or_create(
+            topic=top, url=fake_url, name=fake_name)[0]
+        acc_rec = AccessRecord.objects.get_or_create(
+            name=webpg, date=fake_date)[0]
+
+
+if __name__ == '__main__':
+    print('populating script!')
+    populate(20)
+    print('population complete!')
+
+
+```
+<b>Prettier Will Mess Up The Import and Make It Impossible To Run The File</b>
+
+run `python3 populate_first_app.py`
