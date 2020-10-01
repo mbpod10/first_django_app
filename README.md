@@ -301,8 +301,13 @@ Password: training123
 Password (again): training123
 ```
 
-`<b>Superuser created successfully.</b>`
+`Superuser created successfully`
 
-#### Let's See If It Worked
+### Let's See If It Worked
 
-`python3 manage.py runserver`
+`python3 manage.py runserver` <br  /> <br  />
+
+- In brower go to `http://127.0.0.1:8000/admin`
+- Enter Username and password
+
+  ![Superuser Login](https://i.imgur.com/75qenrj.png "Successful Superuser Login")
