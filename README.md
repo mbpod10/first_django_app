@@ -182,3 +182,58 @@ TEMPLATES = [
     },
 ]
 ```
+
+### Creat API
+
+cd into `first_app/models.py`
+
+create models:
+
+```
+from django.db import models
+
+# Create your models here.
+
+
+class Topic(models.Model):
+    top_name = models.CharField(max_length=264, unique=True)
+
+    def __str__(self):
+        return self.top_name
+
+
+class Webpage(models.Model):
+    topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
+    name = models.CharField(max_length=264, unique=True)
+    url = models.URLField(unique=True)
+
+    def __str__(self):
+        return self.name
+
+
+class AccessRecord(models.Model):
+    name = models.ForeignKey(Webpage, on_delete=models.CASCADE)
+    date = models.DateField()
+
+    def __str__(self):
+        return str(self.date)
+
+```
+
+- If error `no value for argument 'on_delete' in constructor call` put `on_delete=models.CASCADE` in foreign key
+
+# Migrate Models
+
+- while in `first_project2` folder command:
+  `python3 manage.py migrate`
+- Register Application
+  `python3 manage.py makemigrations first_app`
+  RETURN:
+
+```
+Migrations for 'first_app':
+  first_app/migrations/0001_initial.py
+    - Create model Topic
+    - Create model Webpage
+    - Create model AccessRecord
+```
