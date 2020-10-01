@@ -155,12 +155,12 @@ print(BASE_DIR)
 - Create a new folder called `templates` in base of first_project2
 - Go back to `first_project2/first_project2/settings.py` and set a new variable that is the path to templates
 
-```
+```python
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = BASE_DIR / 'templates'
 print(TEMPLATE_DIR)
-==
-/Users/brock/Desktop/postGA/projects/python_projects/first_django_app/first_project2/templates
+#==
+#/Users/brock/Desktop/postGA/projects/python_projects/first_django_app/first_project2/templates
 ```
 
 - Scroll Down to TEMPLATES in `first_project2/first_project2/settings.py` and add the new template variable TEMPLATE_DIR
@@ -227,13 +227,78 @@ class AccessRecord(models.Model):
 - while in `first_project2` folder command:
   `python3 manage.py migrate`
 - Register Application
-  `python3 manage.py makemigrations first_app`
+  `python3 manage.py makemigrations first_app` <br  />
   RETURN:
 
-```python
+```
 Migrations for 'first_app':
   first_app/migrations/0001_initial.py
     - Create model Topic
     - Create model Webpage
     - Create model AccessRecord
 ```
+
+- Migrate One More Time
+  `python3 manag.py migrate`
+
+# Confirmat It Worked With Python Shell
+
+`python3 manage.py shell`
+
+```python
+from first_app.models import Topic
+print(Topic.objects.all())
+t = Topic(top_name="Social Network")
+t.save()
+```
+
+RETURN:
+
+```python
+In [1]: print('hello')
+hello
+
+In [2]: from first_app.models import Topic
+
+In [3]: print(Topic.objects.all())
+<QuerySet []>
+
+In [4]: t = Topic(top_name="Social Network")
+
+In [5]: t.save()
+
+In [6]: print(Topic.objects.all())
+<QuerySet [<Topic: Social Network>]>
+
+```
+
+# Make Posts Via `first_app/admin.py`
+
+- go to `first_app/admin.py`
+- import models from `first_app`
+
+```python
+from django.contrib import admin
+from first_app.models import AccessRecord, Topic, Webpage
+
+# Register your models here.
+admin.site.register(AccessRecord)
+admin.site.register(Topic)
+admin.site.register(Webpage)
+
+```
+
+# Create Super User
+
+`python3 manage.py createsuperuser`
+
+- So no one can corrupt the database
+
+```
+Username (leave blank to use ''): training@gmail.com
+Email address: training@gmail.com
+Password: training123
+Password (again): training123
+```
+
+<b>SUPER USER CREATED</b>
