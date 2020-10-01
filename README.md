@@ -230,10 +230,10 @@ class AccessRecord(models.Model):
   `python3 manage.py makemigrations first_app`
   RETURN:
 
-````
+```python
 Migrations for 'first_app':
   first_app/migrations/0001_initial.py
     - Create model Topic
     - Create model Webpage
     - Create model AccessRecord
-````
+```
