@@ -226,7 +226,7 @@ TEMPLATE_DIR is now imported
 
 Go to http://127.0.0.1:8000/ and make sure 'Hello World' is rendered
 
-# Creat API
+# Create API
 
 cd into `first_app/models.py`
 
@@ -357,7 +357,7 @@ Password (again): training123
 <br  />
 <b>SUCCESS!</b>
 
-# Faker Populate Database
+# Populate Database With Faker
 
 - Install Faker in virtual environment `MyDjangoEnv` <br  />
   `pip3 install faker`
@@ -411,9 +411,31 @@ if __name__ == '__main__':
 
 
 ```
+## Error
+``
+<b>Format On Save Will Mess Up The Import and Make It Impossible To Run The File</b>
+The save will push the imports to the top of the file<br  />
+Error Message: 
 
-<b>Prettier Will Mess Up The Import and Make It Impossible To Run The File</b>
+```
+Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.
+```
+## Solution 
+`CTRL + SHIFT + P` <br  />
+Search `Preferences: Configure Language Setting` <br  />
+Search `Python` <br  />
+In `setting.js`, comment out `"editor.formatOnSave": true,`
 
+```js
+{
+  // "editor.formatOnSave": true,
+  "editor.minimap.enabled": false,
+  "color-highlight.matchWords": true,
+  "window.zoomLevel": 0,
+  "python.dataScience.sendSelectionToInteractiveWindow": true,
+  "python.dataScience.interactiveWindowMode": "perFile"
+}
+```
 run `python3 populate_first_app.py`
-
+## To Reload A CSS File To Django App
 - <em>reload</em> after css update `shift + click refresh`
