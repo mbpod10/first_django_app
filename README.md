@@ -74,7 +74,6 @@ django-admin startproject first_project
 cd into `first_project`
 
 ```
-
 python3 manage.py runserver
 ```
 
@@ -118,19 +117,17 @@ then go to url in browser
 
 http://127.0.0.1:8000/
 
-## Create DJANGO APP
+# Create DJANGO APP
 
 ```
-
 # within first_project2
 
 python3 manage.py startapp first_app
-
 ```
 
 - first_project2 should be on the same level as first_app
 
-# Import first_app to first_project/settings
+### Import first_app to first_project/settings
 
 scroll down to INSTALLED_APPS and import 'first_app'
 
@@ -146,51 +143,50 @@ INSTALLED_APPS = [
 ]
 ```
 
-# django Views
+### Django Views
 
-in first_app/views.py add ===>
+in `first_app/views.py` add ===>
 
 ```python
 from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
 
-
 def index(request):
     return HttpResponse('Hello World')
-
 ```
 
-## add this route to first_project2/urls.py
+The return from the request will now render `Hello World` client-side
+
+### Add Route Project Urls
+
+within `first_project2/urls.py`
 
 ```python
 from django.contrib import admin
 from django.urls import path
-
-#............................
 from first_app import views
-#^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 urlpatterns = [
     path('', views.index, name='index'),
     path('admin/', admin.site.urls),
 ]
-
-
 ```
 
-## Running Setting
+Notice the `''` in the path. This is the root route of the application so `http://127.0.0.1:8000/` should receive the `index` request from `first_app/views.py`
 
-cd into `first_project2/first_project2`
-run `python3 settings.py`
-add below `BASE_DIR = Path(__file__).resolve().parent.parent`
+### Running Setting
+
+cd into `first_project2/first_project2` <br  />
+run `python3 settings.py` <br  />
+notice `BASE_DIR = Path(__file__).resolve().parent.parent` <br  />
+This is the ABSOLUTE path of the WHOLE project <br  />
+`/Users/brock/Desktop/postGA/projects/python_projects/first_django_app/first_project2`
 
 ```
 BASE_DIR = Path(__file__).resolve().parent.parent
 print(BASE_DIR)
-#this gets full file path of project
-==
-/Users/brock/Desktop/postGA/projects/python_projects/first_django_app/first_project2
 ```
 
 - Create a new folder called `templates` in base of first_project2
@@ -200,9 +196,9 @@ print(BASE_DIR)
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = BASE_DIR / 'templates'
 print(TEMPLATE_DIR)
-#==
-#/Users/brock/Desktop/postGA/projects/python_projects/first_django_app/first_project2/templates
 ```
+
+`/Users/brock/Desktop/postGA/projects/python_projects/first_django_app/first_project2/templates` <br  />
 
 - Scroll Down to TEMPLATES in `first_project2/first_project2/settings.py` and add the new template variable TEMPLATE_DIR
 
@@ -223,6 +219,12 @@ TEMPLATES = [
     },
 ]
 ```
+
+TEMPLATE_DIR is now imported
+
+### Check in Browser
+
+Go to http://127.0.0.1:8000/ and make sure 'Hello World' is rendered
 
 ### Creat API
 
