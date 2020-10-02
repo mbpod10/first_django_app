@@ -88,6 +88,8 @@ Django version 3.1.1, using settings 'django2_exercise.settings'
 Starting development server at http://127.0.0.1:8000/
 ```
 
+![Django](https://www.thecrazyprogrammer.com/wp-content/uploads/2018/10/Django-Custom-Webpage-1.png "Django")
+
 - Go to `http://127.0.0.1:8000/` to see if server is working
 
 ## Error
