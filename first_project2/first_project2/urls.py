@@ -20,7 +20,9 @@ from first_app import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('first_app/', include('first_app.urls')),
+    path('home/', views.home, name='home'),
+    path('form/', views.form_name_view, name='form_name_view'),
+    path('first_app/', include('first_app.urls')),    
     # path('hello', views.hello, name='hello'),
     path('admin/', admin.site.urls),
 ]

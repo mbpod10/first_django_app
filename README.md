@@ -314,7 +314,7 @@ In [6]: print(Topic.objects.all())
 
 ```
 
-## Make Posts Via `first_app/admin.py`
+## Make Posts Via Admin
 
 - go to `first_app/admin.py`
 - import models from `first_app`
@@ -412,7 +412,7 @@ if __name__ == '__main__':
 
 ```
 ## Error
-``
+
 <b>Format On Save Will Mess Up The Import and Make It Impossible To Run The File</b>
 The save will push the imports to the top of the file<br  />
 Error Message: 
@@ -429,13 +429,11 @@ In `setting.js`, comment out `"editor.formatOnSave": true,`
 ```js
 {
   // "editor.formatOnSave": true,
-  "editor.minimap.enabled": false,
-  "color-highlight.matchWords": true,
-  "window.zoomLevel": 0,
-  "python.dataScience.sendSelectionToInteractiveWindow": true,
-  "python.dataScience.interactiveWindowMode": "perFile"
 }
 ```
 run `python3 populate_first_app.py`
+
+<b>BE SURE TO UNCOMMENT OUT THE ABOVE CODE TO REFORMAT OTHER FILES</b>
+
 ## To Reload A CSS File To Django App
 - <em>reload</em> after css update `shift + click refresh`
