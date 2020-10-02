@@ -200,7 +200,7 @@ print(TEMPLATE_DIR)
 
 `/Users/brock/Desktop/postGA/projects/python_projects/first_django_app/first_project2/templates` <br  />
 
-- Scroll Down to TEMPLATES in `first_project2/first_project2/settings.py` and add the new template variable TEMPLATE_DIR
+- Scroll Down to TEMPLATES in `first_project2/first_project2/settings.py` and add the new template variable `TEMPLATE_DIR`
 
 ```python
 TEMPLATES = [
@@ -226,7 +226,7 @@ TEMPLATE_DIR is now imported
 
 Go to http://127.0.0.1:8000/ and make sure 'Hello World' is rendered
 
-### Creat API
+# Creat API
 
 cd into `first_app/models.py`
 
@@ -236,7 +236,6 @@ create models:
 from django.db import models
 
 # Create your models here.
-
 
 class Topic(models.Model):
     top_name = models.CharField(max_length=264, unique=True)
@@ -265,7 +264,7 @@ class AccessRecord(models.Model):
 
 - If error `no value for argument 'on_delete' in constructor call` put `on_delete=models.CASCADE` in foreign key
 
-# Migrate Models
+### Migrate Models
 
 - while in `first_project2` folder command:
   `python3 manage.py migrate`
@@ -282,9 +281,9 @@ Migrations for 'first_app':
 ```
 
 - Migrate One More Time
-  `python3 manag.py migrate`
+  `python3 manage.py migrate`
 
-# Confirm It Worked With Python Shell
+### Confirm It Worked With Python Shell
 
 `python3 manage.py shell`
 
@@ -315,7 +314,7 @@ In [6]: print(Topic.objects.all())
 
 ```
 
-# Make Posts Via `first_app/admin.py`
+## Make Posts Via `first_app/admin.py`
 
 - go to `first_app/admin.py`
 - import models from `first_app`
@@ -331,7 +330,7 @@ admin.site.register(Webpage)
 
 ```
 
-# Create Super User
+### Create Super User
 
 `python3 manage.py createsuperuser`
 
@@ -358,7 +357,7 @@ Password (again): training123
 <br  />
 <b>SUCCESS!</b>
 
-### Faker Populate Database
+# Faker Populate Database
 
 - Install Faker in virtual environment `MyDjangoEnv` <br  />
   `pip3 install faker`
@@ -417,4 +416,4 @@ if __name__ == '__main__':
 
 run `python3 populate_first_app.py`
 
-- <em>reload</em> after css update `shiftt + click refresh`
+- <em>reload</em> after css update `shift + click refresh`
