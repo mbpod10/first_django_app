@@ -106,17 +106,26 @@ ImportError: Couldn't import Django. Are you sure it's installed and available o
 
 ```
  python3 -m pip install django
- # then
- python3 manage.py runserver
- # then to url bar
- http://127.0.0.1:8000/
 ```
+
+then
+
+```
+ python3 manage.py runserver
+```
+
+then go to url in browser
+
+http://127.0.0.1:8000/
 
 ## Create DJANGO APP
 
 ```
+
 # within first_project2
+
 python3 manage.py startapp first_app
+
 ```
 
 - first_project2 should be on the same level as first_app
