@@ -1,65 +1,96 @@
-## List All Environments
+(Note: All CLI may need need to start with `python3`)
+
+# Virtual Environments
+
+### List All Virtual Environments
 
 ```
 conda info --envs
 ```
 
-comes out to be
+comes out to be:
+
+```
+base                  *  /Users/brock/opt/anaconda3
+
+```
+
+### Create Virtual Environment
+
+```
+ conda create --name MyDjangoEnv django
+```
+
+- View Envs Again
+  conda info --envs
 
 ```
 base                  *  /Users/brock/opt/anaconda3
 MyDjangoEnv              /Users/brock/opt/anaconda3/envs/MyDjangoEnv
 ```
 
-## Create Virtual Environment
+<b>Environment created!</b>
 
-```
- conda create --name MyDjangoEnv django
- # python > 3.5
-```
-
-## Activate Environment
+### Activate Environment
 
 ```
 conda activate MyDjangoEnv
 ```
 
-## Deactive Environment
+terminal should now look like:
 
 ```
-conda deactivate MyDjangoEnv
+(MyDjangoEnv) brock@Brocks-MBP first_django_app %
 ```
 
-## Remove Env
+### Deactive Environment
+
+- To deactive your environment:
+
+```
+conda deactivate
+```
+
+- Terminal looks like:
+
+```
+(base) brock@Brocks-MBP first_django_app %
+```
+
+### Delete Env
 
 ```
 conda env remove --name MyDjangoEnv
 ```
 
-# Django CLI
-
-```
-django-admin startproject first_project2
-```
-
-# Create Project
+# Create Django Project
 
 ```
 django-admin startproject first_project
 ```
 
-## Run Server
+### Run Server
+
+cd into `first_project`
 
 ```
-cd first_project
-python manage.py runserver
 
-# OR
-
-python3 manage.py startapp <yourApp name>
+python3 manage.py runserver
 ```
 
-# Error
+Result:
+
+```
+You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+October 02, 2020 - 12:44:49
+Django version 3.1.1, using settings 'django2_exercise.settings'
+Starting development server at http://127.0.0.1:8000/
+```
+
+- Go to `http://127.0.0.1:8000/` to see if server is working
+
+## Error
 
 ```
 Traceback (most recent call last):
@@ -70,7 +101,7 @@ Traceback (most recent call last):
 ImportError: Couldn't import Django. Are you sure it's installed and available on your PYTHONPATH environment variable? Did you forget to activate a virtual environment?
 ```
 
-## Solution
+### Solution
 
 ```
  python3 -m pip install django
@@ -323,8 +354,8 @@ Password (again): training123
 
 ```python
 import os
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'first_project2.settings') 
-import django 
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'first_project2.settings')
+import django
 django.setup()
 #Fake Pop Script
 
@@ -369,6 +400,9 @@ if __name__ == '__main__':
 
 
 ```
+
 <b>Prettier Will Mess Up The Import and Make It Impossible To Run The File</b>
 
 run `python3 populate_first_app.py`
+
+- <em>reload</em> after css update `shiftt + click refresh`

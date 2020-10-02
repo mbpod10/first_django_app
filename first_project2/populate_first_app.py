@@ -1,12 +1,13 @@
-import django
-from faker import Faker
-from first_app.models import AccessRecord, Webpage, Topic
-import random
 import os
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'first_project2.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'first_project2.settings') 
+import django 
 django.setup()
-# Fake Pop Script
+#Fake Pop Script
 ###############################
+import random
+from first_app.models import AccessRecord, Webpage, Topic
+from faker import Faker
+
 
 
 fakegen = Faker()
