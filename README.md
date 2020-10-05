@@ -437,3 +437,10 @@ run `python3 populate_first_app.py`
 
 ## To Reload A CSS File To Django App
 - <em>reload</em> after css update `shift + click refresh`
+# Redo The Whole Database
+
+1. Delete the sqlite database file (often `db.sqlite3`) in your django project folder (or wherever you placed it)
+2. Delete everything except `__init__.py` file from `migration` folder in all django apps
+3. Make changes in your models (`models.py`).
+4. Run the command `python manage.py makemigrations` or `python3 manage.py makemigrations`
+5. Then run the command `python manage.py migrate`
